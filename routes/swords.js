@@ -2,6 +2,18 @@ var express = require('express');
 var router = express.Router();
 var Swords = require('../db/swords');
 
+
+var potions = [
+	'Love',
+	'Death',
+	'Mistical'
+	]
+
+
+router.get('/potions', function(req, res) {
+	res.send(potions.join(", "));
+});
+
 router.get('/', function(req, res) {
 	Swords.find({}, function(err, swords) {
 		if(err) {
